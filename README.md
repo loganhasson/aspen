@@ -40,3 +40,5 @@ Project successfully created at: /Users/matthewcampbell/Sites/code/labs/awesome-
 Tell us what you think! You're awesome and so are your opinions :)
 
 If you have suggestions on how to improve the gem, [drop us a line](mailto:teamevalruby@gmail.com) or submit a pull request to the GitHub repo.
+
+Built with ♥ <a href="https://twitter.com/flatironschool">@flatironschool</a>

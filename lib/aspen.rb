@@ -3,9 +3,6 @@ require 'rspec'
 
 class Aspen
 
-  # Aspen.run("roman numerals -s")
-  # Aspen.run("roman_numerals -s")
-
   def self.method_missing(method, *args, &block)
     puts "Invalid command - try again."
   end
