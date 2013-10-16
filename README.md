@@ -1,14 +1,14 @@
 # Ruby Project Setup Gem
-A gem to setup a folder structure for a Ruby project.
 
-0.0.0
+A gem to setup a folder structure for a Ruby project. More info on RubyGems: [Aspen](http://rubygems.org/gems/aspen).
 
-Creates basic project directory structure with rspec --init included
+Installation:
 
-0.0.1
+```bash
+gem install aspen
+```
 
-Want user to pass flags like:
+0.1.0
 
--s creates _sites and other HTML dirs
-
-User passes in model names
+Creates basic project directory structure including rspec initialization. Also creates
+skeleton README.md and evnironment.rb files.
