@@ -41,3 +41,17 @@ Project successfully created at: /Users/matthewcampbell/Sites/code/labs/awesome-
 Tell us what you think! You're awesome and so are your opinions :)
 
 If you have suggestions on how to improve the gem, [drop us a line](mailto:teamevalruby@gmail.com) or submit a pull request to the GitHub repo.
+
+###Known Issues:
+
+* Prints "Invalid Command" even if the gem has worked
+
+* --help flag looks for a file that doesn't exist
+
+###Upcoming Features:
+
+* Flags to customize directory structure
+
+* Github/git repo creation via flag
+
+* Model.rb and Template.erb file creation
