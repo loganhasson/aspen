@@ -54,18 +54,3 @@ class Aspen
     end
   end
 end
-
-# Pass Cases
-Aspen.run(["test"])
-puts;puts;
-Aspen.run(["test","project","name"])
-puts;puts;
-
-# Fail Cases
-Aspen.run(["1project"])
-puts;puts;
-Aspen.run(["1","project","name"])
-puts;puts;
-Aspen.run(["-","project","name"])
-puts;puts;
-Aspen.run(["$","project","name"])
