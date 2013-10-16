@@ -1,6 +1,6 @@
 # Aspen
 
-A gem to setup a folder structure for a Ruby project. More info on RubyGems.org: [Aspen](http://rubygems.org/gems/aspen).
+A gem to instantly create your directory structure for a new Ruby project. More info on RubyGems.org: [Aspen](http://rubygems.org/gems/aspen).
 
 ###Installation:
 
