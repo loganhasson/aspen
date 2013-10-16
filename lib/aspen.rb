@@ -24,7 +24,6 @@ class Aspen
     FileUtils.mkdir_p("#{@@root_name}/lib/models", :verbose => true) # models go here!
     FileUtils.mkdir_p("#{@@root_name}/lib/concerns", :verbose => true) # modules go here!
     FileUtils.mkdir_p("#{@@root_name}/bin", :verbose => true)
-    #FileUtils.mkdir_p("#{@@root_name}/spec", :verbose => true)
     FileUtils.mkdir_p("#{@@root_name}/config", :verbose => true)
     rspec_init
     make_files
