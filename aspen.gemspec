@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = "Sets up a simple directory tree for Ruby projects"
   s.authors     = ["Logan Hasson", "Josh Scaglione", "Ivan Brennan", "Matt Campbell" ]
   s.email       = "teamevalruby@gmail.com"
-  s.files       = ["lib/aspen.rb"]
+  s.files       = ["lib/aspen.rb", "help/help.txt"]
   s.homepage    =
     'http://rubygems.org/gems/aspen'
   s.license       = 'MIT'
