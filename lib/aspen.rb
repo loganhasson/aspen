@@ -59,7 +59,7 @@ class Aspen
   end
 
   def self.sterilize_project_name(string)
-    if string.match(/[^\w|\s|\-|.]|\d/)
+    if string.match(/[^\w|\s|\-|.]/)
       puts "Invalid project name"
     else
       string.strip.downcase.gsub(" ", "-").gsub("_", "-")
