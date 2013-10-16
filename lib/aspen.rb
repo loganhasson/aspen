@@ -8,7 +8,7 @@ class Aspen
   end
 
   def self.help
-    File.open("help/help.txt").each_line do |line|
+    File.open("help.txt").each_line do |line|
       puts line
     end
   end
