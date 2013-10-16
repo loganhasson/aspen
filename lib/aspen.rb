@@ -10,7 +10,17 @@ class Aspen
     puts "Invalid command - try again."
   end
 
+  def self.help
+    File.open("help/help.txt").each_line do |line|
+      puts line
+    end
+  end
+
   def self.run(args)
+    if args[0].strip.downcase == '--help' 
+      return help
+    end
+    puts args.inspect
     return method_missing(:run, args) if args == nil
     @@root_name = sterilize_project_name(args.join(" "))
     return if @@root_name == nil
@@ -44,6 +54,12 @@ class Aspen
   def self.make_files
     FileUtils.touch("#{@@root_name}/README.md") #README
     FileUtils.touch("#{@@root_name}/config/environment.rb") #environment
+    File.open("#{@@root_name}/config/environment.rb", "w+") do |f|
+      f << "Dir.foreach('lib') do |file|
+              next if file.start_with?('.')
+              require_relative '../lib/\"#{file}\"' if file.end_with?('.rb')
+            end"
+    end
   end
 
   def self.sterilize_project_name(string)

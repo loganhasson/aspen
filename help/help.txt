@@ -1,0 +1,16 @@
+ --------------------------------------------------------------------
+|aspen creates a skeleton directory structure for your Ruby projects.|
+ --------------------------------------------------------------------
+Usage:
+$ aspen <project_title>
+
+Allowed characters for <project_title> are A-z, underscores,
+hyphens, spaces, and periods. Note: Underscores and spaces
+will be swapped out with hypens when aspen creates your
+directories.
+
+Optional Flags:
+Coming soon
+
+Help:
+$ aspen --help
