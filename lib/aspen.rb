@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'rspec'
 
 class Aspen
 

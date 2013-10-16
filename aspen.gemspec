@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'aspen'
-  s.version     = '0.0.7'
+  s.version     = '0.0.8'
   s.executables << 'aspen'
   s.date        = '2013-10-16'
   s.summary     = "aspen gem"
@@ -11,4 +11,5 @@ Gem::Specification.new do |s|
   s.homepage    =
     'http://rubygems.org/gems/aspen'
   s.license       = 'MIT'
+  s.add_runtime_dependency('rspec')
 end
