@@ -3,6 +3,8 @@ require 'rspec'
 
 class Aspen
 
+  DIRECTORIES = ["","/bin", "/config","/lib/models","/lib/concerns"]
+
   def self.method_missing(method, *args, &block)
     puts "Invalid command - try again."
   end
@@ -18,16 +20,20 @@ class Aspen
       return help
     end
     return method_missing(:run, args) if args == nil
-    @@root_name = sterilize_project_name(args.join(" "))
+    @@root_name = sterilize_project_name(args)
     return if @@root_name == nil
-    FileUtils.mkdir_p("#{@@root_name}", :verbose => true)
-    FileUtils.mkdir_p("#{@@root_name}/lib/models", :verbose => true) # models go here!
-    FileUtils.mkdir_p("#{@@root_name}/lib/concerns", :verbose => true) # modules go here!
-    FileUtils.mkdir_p("#{@@root_name}/bin", :verbose => true)
-    FileUtils.mkdir_p("#{@@root_name}/config", :verbose => true)
+    project_init
+  end
+
+  def self.project_init
+    directory_init
     rspec_init
     make_files
     successful_creation
+  end
+
+  def self.directory_init
+    DIRECTORIES.each {|dir| FileUtils.mkdir_p("#{@@root_name}#{dir}", :verbose => true)}
   end
 
   def self.rspec_init
@@ -37,31 +43,21 @@ class Aspen
     FileUtils.cd(current)
   end
 
-  def self.successful_creation
-    puts "Project successfully created at: #{Dir.pwd}/#{@@root_name}"
-    # puts "Would you like to navigate into #{@@root_name}? [y/n] "
-    # response = $stdin.gets.strip.downcase
-    # if response == "y"
-    #   system ruby -e "Dir.chdir(#{@@root_name}); system 'bash'"
-    # end
-  end
-
   def self.make_files
-    FileUtils.touch("#{@@root_name}/README.md") #README
-    FileUtils.touch("#{@@root_name}/config/environment.rb") #environment
-    File.open("#{@@root_name}/config/environment.rb", "w+") do |f|
-      f << "Dir.foreach('lib') do |file|
-              next if file.start_with?('.')
-              require_relative '../lib/\"#{file}\"' if file.end_with?('.rb')
-            end"
-    end
+    FileUtils.touch("#{@@root_name}/README.md")
+    FileUtils.touch("#{@@root_name}/config/environment.rb")
   end
 
-  def self.sterilize_project_name(string)
-    if string.match(/[^\w|\s|\-|.]/)
-      puts "Invalid project name"
+  def self.successful_creation
+    puts "\nProject successfully created at:\n\t#{Dir.pwd}/#{@@root_name}\n"
+  end
+
+  def self.sterilize_project_name(args)
+    name = (args.size == 1 ? args.first : args.join(" "))
+    if name.match(/^[a-z]/i)
+      name.strip.downcase.gsub(/[\s\_]/,"-")
     else
-      string.strip.downcase.gsub(" ", "-").gsub("_", "-")
+      puts "Invalid project name: #{name}"
     end
   end
 end
