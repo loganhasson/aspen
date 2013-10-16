@@ -17,6 +17,7 @@ skeleton README.md and evnironment.rb files.
 $ aspen <project_title>
 ```
 
+###CURRENTLY BROKEN, WOOPS
 ```bash
 $ aspen --help
 ```
