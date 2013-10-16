@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'aspen'
-  s.version     = '0.1.7'
+  s.version     = '0.1.8'
   s.executables << 'aspen'
   s.date        = '2013-10-16'
   s.summary     = "aspen gem"

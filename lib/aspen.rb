@@ -3,6 +3,8 @@ require 'rspec'
 
 class Aspen
 
+  AspenRoot = File.dirname(__FILE__)
+
   DIRECTORIES = ["","/bin", "/config","/lib/models","/lib/concerns"]
 
   def self.method_missing(method, *args, &block)
@@ -10,7 +12,7 @@ class Aspen
   end
 
   def self.help
-    File.open("help.txt").each_line do |line|
+    File.open(File.join(AspenRoot, "../help/help.txt")).each_line do |line|
       puts line
     end
   end
