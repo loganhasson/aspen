@@ -20,7 +20,6 @@ class Aspen
     if args[0].strip.downcase == '--help' 
       return help
     end
-    puts args.inspect
     return method_missing(:run, args) if args == nil
     @@root_name = sterilize_project_name(args.join(" "))
     return if @@root_name == nil
