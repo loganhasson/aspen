@@ -42,6 +42,3 @@ class Aspen
     end
   end
 end
-
-Aspen.run("the french kinda suck é &")
-Aspen.run("good name")

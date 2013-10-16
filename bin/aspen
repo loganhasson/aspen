@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'aspen'
+Aspen.run(ARGV[0])
