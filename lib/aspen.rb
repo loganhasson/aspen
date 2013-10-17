@@ -54,7 +54,7 @@ class Aspen
       require_relative "#{AspenRoot}/lib/templates/default.rb"
     else
       Dir.foreach("#{AspenRoot}/lib/templates") do |file|
-        if file.start_with?("#{@@opts[:template]}")
+        if file.start_with?("#{@@opts[:template].downcase.strip}")
           require_relative "#{AspenRoot}/lib/templates/#{file}"
           break
         end
@@ -69,7 +69,7 @@ class Aspen
   def self.project_init
     directory_init
     rspec_init
-    make_files
+    make_files if @@opts[:template] == nil || @@opts[:template] == "default"
     successful_creation
     write_to_files
     process_flags
