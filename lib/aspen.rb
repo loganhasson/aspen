@@ -2,7 +2,6 @@ require_relative '../config/environment'
 
 class Aspen
 
-
   def self.directories
     @@directories
   end
