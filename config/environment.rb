@@ -1,6 +1,8 @@
 require 'fileutils'
 require 'rspec'
 require 'pry'
+require 'git'
+require 'trollop'
 
 AspenRoot = File.expand_path(File.dirname(__FILE__)).gsub("/config", "")
 
