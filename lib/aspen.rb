@@ -25,6 +25,7 @@ class Aspen
 
   def self.run
     @@root_name = sterilize_project_name(@@opts[:name])
+    load_template
     @@directories = AspenTemplate.tree(TEMPLATE)
     project_init
   end
@@ -44,6 +45,19 @@ class Aspen
     @@mono_flags.each do |flag|
       if @@opts[flag] == true
         self.send(flag)
+      end
+    end
+  end
+
+  def self.load_template
+    if @@opts[:template] == nil
+      require_relative "#{AspenRoot}/lib/templates/default.rb"
+    else
+      Dir.foreach("#{AspenRoot}/lib/templates") do |file|
+        if file.start_with?("#{@@opts[:template]}")
+          require_relative "#{AspenRoot}/lib/templates/#{file}"
+          break
+        end
       end
     end
   end
