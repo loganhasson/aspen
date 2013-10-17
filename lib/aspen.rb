@@ -2,6 +2,7 @@ require_relative '../config/environment'
 
 class Aspen
 
+  @@opts = {:template => "joshtempl"}
 
   def self.directories
     @@directories
@@ -24,8 +25,22 @@ class Aspen
     return method_missing(:run, args) if args == nil
     @@root_name = sterilize_project_name(args)
     return if @@root_name == nil
+    load_template
     @@directories = AspenTemplate.tree(TEMPLATE)
     project_init
+  end
+
+  def self.load_template
+    if @@opts[:template] == nil
+      require_relative "#{AspenRoot}/lib/templates/default.rb"
+    else
+      Dir.foreach("#{AspenRoot}/lib/templates") do |file|
+        if file.start_with?("#{@@opts[:template]}")
+          require_relative "#{AspenRoot}/lib/templates/#{file}"
+          break
+        end
+      end
+    end
   end
 
   def self.project_init
