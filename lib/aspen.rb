@@ -52,7 +52,7 @@ class Aspen
 
   def self.write_to_files
     File.open("#{@@root_name}/README.md", "w+") do |f|
-      f << "###{@@project_name}\n*thanks for using aspen - happy coding!* ♥"
+      f << "###{@@project_name}\n*thanks for using aspen - happy coding!*"
     end
   end
 
