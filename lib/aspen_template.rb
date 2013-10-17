@@ -1,6 +1,5 @@
 class AspenTemplate
 
-
   def self.tree(hash)
     self.tree_gen(hash).flatten.unshift("")
   end
@@ -11,7 +10,7 @@ class AspenTemplate
       if value.size == 0
         "#{root}/#{key}"
       else
-        self.folders(value, "#{root}/#{key}")
+        self.tree_gen(value, "#{root}/#{key}")
       end
     end
   end
