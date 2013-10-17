@@ -1,6 +1,7 @@
+require_relative '../config/environment'
+
 class Aspen
 
-  #@@directories = AspenTemplate.tree(TEMPLATE)
 
   def self.directories
     @@directories
@@ -23,6 +24,7 @@ class Aspen
     return method_missing(:run, args) if args == nil
     @@root_name = sterilize_project_name(args)
     return if @@root_name == nil
+    @@directories = AspenTemplate.tree(TEMPLATE)
     project_init
   end
 
