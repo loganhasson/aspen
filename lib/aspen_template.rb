@@ -1,39 +1,20 @@
 class AspenTemplate
 
-  def self.folders(hash, root="")
 
-    folders_array = [""]
-    hash.each do |key, value|
-      if value.size == 0
-        folders_array << "/#{key}"
-      else
-        value.each do 
-
-    #process the hash into an array of directories with proper slashes
-
+  def self.tree(hash)
+    self.tree_gen(hash).flatten.unshift("")
   end
 
 
+  def self.tree_gen(hash, root="")
+    folders_array = hash.collect do |key, value|
+      if value.size == 0
+        "#{root}/#{key}"
+      else
+        self.folders(value, "#{root}/#{key}")
+      end
+    end
+  end
 
 
-# ["","/bin", "/config","/lib/models","/lib/concerns"]
-
-# {
-#   :bin => {},
-#   :config => {},
-#   :lib => {
-#             :models => {},
-#             :concerns => {
-#                           :taco => {}
-#                          }
-#           }
-# }
-
-# {
-#     :lib => [
-#       :models, 
-#       {:views => :layouts}
-#     ],
-#     :config
-#   }
 end
