@@ -14,7 +14,7 @@ class Aspen
 Basic Usage:
        aspen <project_name>
 
-Begger Usage:
+Better Usage:
        aspen [options] <project_name>
 
 where [options] are:
