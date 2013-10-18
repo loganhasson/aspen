@@ -15,3 +15,29 @@ describe Aspen do
   end
 
 end
+
+describe AspenTemplate do
+
+  let(:test_hash) { 
+                    {
+                      :bin => {},
+                      :config => {},
+                      :lib => {
+                        :models => {},
+                        :concerns => {}
+                      }
+                    }
+                  }
+
+
+  it 'has a method that converts a nested hash into an array' do
+    AspenTemplate.tree(test_hash).should be_a(Array)
+  end
+
+  context '::treegen' do
+    it '' do
+
+    end
+  end
+
+end
