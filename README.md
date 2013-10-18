@@ -12,22 +12,24 @@ More info on RubyGems.org: [aspen](http://rubygems.org/gems/aspen).
 $ gem install aspen
 ```
 
-Creates basic project directory structure including rspec initialization. Also creates skeleton README.md and evnironment.rb files.
-
 ###Basic Usage:
 
 ```bash
-$ aspen -n <project_title>
+$ aspen <project_title>
 ```
+
+Creates basic project directory structure including rspec initialization. Also creates skeleton README.md and evnironment.rb files.
 
 ```bash
 $ aspen --help
 ```
 
+Displays help.
+
 ###Example Bash Output:
 
 ```bash
-$ aspen -n my-awesome-project
+$ aspen my-awesome-project
 mkdir -p my-awesome-project
 mkdir -p my-awesome-project/bin
 mkdir -p my-awesome-project/config
@@ -67,21 +69,15 @@ my-awesome-project
 <tbody>
 
 <tr>
-<td><code>-n<br />--name=NAME</code></td>
-<td>Flag to designate the name of your new project. Must come before any other flags.</td>
-<td><code>$ aspen -n my-awesome-project<br />$ aspen --new another-project</code></td>
-</tr>
-
-<tr>
 <td><code>-t<br />--template=TEMPLATE</code></td>
 <td>Flag to designate the tempalte for your project's directory structure. If left blank uses default aspen template.</td>
-<td><code>$ aspen -n my-awesome-project -t hello</td>
+<td><code>$ aspen -t hello my-awesome-project</td>
 </tr>
 
 <tr>
 <td><code>-g<br />--git</code></td>
 <td>Flag to designate auto-initialize your git repo locally.</td>
-<td><code>$ aspen -n my-awesome-project -g<br />$ aspen -n another-project -gt hello</code></td>
+<td><code>$ aspen -g my-awesome-project<br />$ aspen -gt hello another-project</code></td>
 </tr>
 
 </tbody>
