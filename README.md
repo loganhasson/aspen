@@ -1,6 +1,6 @@
 # aspen
 
-A Ruby gem to easily, flexibly, and instantly create your next project's directory structure. Aspen, get it? Like a tree.
+A Ruby gem to easily, flexibly, and instantly create your next project's directory structure. Aspen, get it? Like a tree. With roots.
 
 Anyway, for more details, check out the usage examples below.
 
@@ -12,8 +12,7 @@ More info on RubyGems.org: [aspen](http://rubygems.org/gems/aspen).
 $ gem install aspen
 ```
 
-Creates basic project directory structure including rspec initialization. Also creates
-skeleton README.md and evnironment.rb files.
+Creates basic project directory structure including rspec initialization. Also creates skeleton README.md and evnironment.rb files.
 
 ###Basic Usage:
 
@@ -120,8 +119,11 @@ Tell us what you think! You're awesome and so are your opinions :)
 If you have suggestions on how to improve the gem, [drop us a line](mailto:teamevalruby@gmail.com) or submit a pull request.
 
 And Twitter is always cool:
+
 [@loganhasson](https://www.twitter.com/loganhasson)
+
 [@mecampbellsoup](https://www.twitter.com/mecampbellsoup)
+
 [@j_scag_](https://www.twitter.com/j_scag_)
 
 ###Known Issues:
@@ -139,3 +141,10 @@ And Twitter is always cool:
 * Submit anything else you'd like to see via a GitHub Issue - or, better yet, submit a pull request :) 
 
 Built with ♥ <a href="https://twitter.com/flatironschool">@flatironschool</a>
+
+**Special Thanks:**
+
+[Trollop](http://trollop.rubyforge.org/)
+
+[ruby-git](https://github.com/schacon/ruby-git)
+

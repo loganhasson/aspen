@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'aspen'
-  s.version     = '0.2.0'
+  s.version     = '0.2.1'
   s.executables << 'aspen'
-  s.date        = '2013-10-16'
+  s.date        = '2013-10-17'
   s.summary     = "aspen gem"
   s.description = "Sets up a directory tree for coding projects based on customizable templates"
   s.authors     = ["Logan Hasson", "Josh Scaglione", "Ivan Brennan", "Matt Campbell" ]
