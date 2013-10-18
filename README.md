@@ -48,9 +48,9 @@ Project successfully created at: /Users/matthewcampbell/Sites/code/labs/awesome-
 <tbody>
 
 <tr>
-<td>-n, --new=PROJECT_NAME</td>
+<td>-n<br />--name=NAME</td>
 <td>Flag to designate the name of your new project. Must come before any other flags.</td>
-<td>```$ aspen -n my-awesome-project```<br />```$ aspen --new another-project``` </td>
+<td><code>$ aspen -n my-awesome-project<br />$ aspen --new another-project</code></td>
 </tr>
 
 
