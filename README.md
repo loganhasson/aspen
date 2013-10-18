@@ -36,6 +36,7 @@ Project successfully created at: /Users/matthewcampbell/Sites/code/labs/awesome-
 ```
 ####Default Created Directory Structure:
 
+```bash
 my-awesome-project
 ├── README.md
 ├── bin
@@ -46,6 +47,7 @@ my-awesome-project
 │   └── models
 └── spec
     └── spec_helper.rb
+```
 
 ###Better Usage:
 
