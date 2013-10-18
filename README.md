@@ -141,4 +141,3 @@ And Twitter is always cool:
 * Submit anything else you'd like to see via a GitHub Issue - or, better yet, submit a pull request :) 
 
 Built with ♥ <a href="https://twitter.com/flatironschool">@flatironschool</a>
-
