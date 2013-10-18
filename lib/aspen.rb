@@ -2,48 +2,81 @@ require_relative '../config/environment'
 
 class Aspen
 
+  @@mono_flags = [:git]
+
+  @@args = Trollop::Parser.new do
+    opt :git, "Initialize a git repository"
+    opt :template, "Specify a template structure", :type => :string 
+    opt :name, "Specify project name", :type => :strings                   
+  end
+
+  @@opts = Trollop::with_standard_exception_handling @@args do
+    raise Trollop::HelpNeeded if ARGV.empty? || !ARGV[0].start_with?("-")
+    @@args.parse ARGV
+  end
+
   def self.directories
     @@directories
   end
 
-  def self.method_missing(method, *args, &block)
-    puts "Invalid command - try again."
-  end
-
   def self.help
-    File.open(File.join(AspenRoot, "/help/help.txt")).each_line do |line|
-      puts line
-    end
+    raise Trollop::HelpNeeded
   end
 
-  def self.run(args)
-    if args[0].strip.downcase == '--help' 
-      return help
-    end
-    return method_missing(:run, args) if args == nil
-    @@root_name = sterilize_project_name(args)
-    return if @@root_name == nil
+  def self.run
+    @@root_name = sterilize_project_name(@@opts[:name])
+    load_template
     @@directories = AspenTemplate.tree(TEMPLATE)
     project_init
+  end
+
+  def self.gem_init
+    current = FileUtils.pwd()
+    FileUtils.cd("#{@@root_name}")
+    yield 
+    FileUtils.cd(current)
+  end
+
+  def self.git
+    gem_init { Git.init }
+  end
+
+  def self.process_flags
+    @@mono_flags.each do |flag|
+      if @@opts[flag] == true
+        self.send(flag)
+      end
+    end
+  end
+
+  def self.load_template
+    if @@opts[:template] == nil
+      require_relative "#{AspenRoot}/lib/templates/default.rb"
+    else
+      Dir.foreach("#{AspenRoot}/lib/templates") do |file|
+        if file.start_with?("#{@@opts[:template].downcase.strip}")
+          require_relative "#{AspenRoot}/lib/templates/#{file}"
+          break
+        end
+      end
+    end
+  end
+
+  def self.rspec_init
+    gem_init { RSpec::Core::ProjectInitializer.new.run }
   end
 
   def self.project_init
     directory_init
     rspec_init
-    make_files
+    make_files if @@opts[:template] == nil || @@opts[:template] == "default"
     successful_creation
     write_to_files
+    process_flags
   end
 
   def self.directory_init
     self.directories.each {|dir| FileUtils.mkdir_p("#{@@root_name}#{dir}", :verbose => true)}
-  end
-
-  def self.rspec_init
-    current = FileUtils.pwd()
-    FileUtils.cd("#{@@root_name}")
-    RSpec::Core::ProjectInitializer.new.run  
-    FileUtils.cd(current)
   end
 
   def self.make_files
@@ -61,8 +94,8 @@ class Aspen
     puts "\nProject successfully created at:\n\t#{Dir.pwd}/#{@@root_name}\n"
   end
 
-  def self.sterilize_project_name(args)
-    name = (args.size == 1 ? args.first : args.join(" "))
+  def self.sterilize_project_name(name)
+    name = name.join(" ")
     if name.match(/^[a-z]/i)
       @@project_name = name
       name.strip.downcase.gsub(/[\s\_]/,"-")

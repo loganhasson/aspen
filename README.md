@@ -17,7 +17,6 @@ skeleton README.md and evnironment.rb files.
 $ aspen <project_title>
 ```
 
-###CURRENTLY BROKEN, WOOPS
 ```bash
 $ aspen --help
 ```
@@ -43,10 +42,6 @@ Tell us what you think! You're awesome and so are your opinions :)
 If you have suggestions on how to improve the gem, [drop us a line](mailto:teamevalruby@gmail.com) or submit a pull request to the GitHub repo.
 
 ###Known Issues:
-
-* Prints "Invalid Command" even if the gem has worked
-
-* --help flag looks for a file that doesn't exist
 
 * Will only install rspec via:
 
