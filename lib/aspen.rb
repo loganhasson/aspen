@@ -5,26 +5,36 @@ class Aspen
   @@mono_flags = [:git]
 
   @@args = Trollop::Parser.new do
+    version "aspen-0.2.2"
+    banner <<-EOS
+ -----------------------------------------------------------------------------
+|aspen creates a flexible skeleton directory structure for your Ruby projects.|
+ -----------------------------------------------------------------------------
+
+Basic Usage:
+       aspen <project_name>
+
+Begger Usage:
+       aspen [options] <project_name>
+
+where [options] are:
+EOS
     opt :git, "Initialize a git repository"
-    opt :template, "Specify a template structure", :type => :string 
-    opt :name, "Specify project name", :type => :strings                   
+    opt :template, "Specify a template structure", :type => :string                   
   end
 
   @@opts = Trollop::with_standard_exception_handling @@args do
-    raise Trollop::HelpNeeded if ARGV.empty? || !ARGV[0].start_with?("-n")
-    @@args.parse ARGV
+    temp_args = @@args.parse ARGV
+    raise Trollop::HelpNeeded if ARGV.empty? || @@args.leftovers.size == 0
+    temp_args
   end
 
   def self.directories
     @@directories
   end
 
-  def self.help
-    raise Trollop::HelpNeeded
-  end
-
   def self.run
-    @@root_name = sterilize_project_name(@@opts[:name])
+    @@root_name = sterilize_project_name(@@args.leftovers)
     load_template
     @@directories = AspenTemplate.tree(TEMPLATE)
     project_init
