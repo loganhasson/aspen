@@ -21,7 +21,7 @@ $ aspen -n <project_title>
 $ aspen --help
 ```
 
-###Example:
+###Example Bash Output:
 
 ```bash
 $ aspen awesome new project
@@ -34,8 +34,20 @@ mkdir -p awesome-new-project/config
   create   .rspec
 Project successfully created at: /Users/matthewcampbell/Sites/code/labs/awesome-new-project
 ```
+####Default Created Directory Structure:
 
-###Better Usage
+my-awesome-project
+├── README.md
+├── bin
+├── config
+│   └── environment.rb
+├── lib
+│   ├── concerns
+│   └── models
+└── spec
+    └── spec_helper.rb
+
+###Better Usage:
 
 <table>
 <thead><tr>
