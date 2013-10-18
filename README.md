@@ -24,15 +24,17 @@ $ aspen --help
 ###Example Bash Output:
 
 ```bash
-$ aspen awesome new project
-mkdir -p awesome-new-project
-mkdir -p awesome-new-project/lib/models
-mkdir -p awesome-new-project/lib/concerns
-mkdir -p awesome-new-project/bin
-mkdir -p awesome-new-project/config
+$ aspen -n my-awesome-project
+mkdir -p my-awesome-project
+mkdir -p my-awesome-project/bin
+mkdir -p my-awesome-project/config
+mkdir -p my-awesome-project/lib/models
+mkdir -p my-awesome-project/lib/concerns
   create   spec/spec_helper.rb
   create   .rspec
-Project successfully created at: /Users/matthewcampbell/Sites/code/labs/awesome-new-project
+ 
+Project successfully created at:
+	/Users/matthewcampbell/Sites/code/labs/my-awesome-project
 ```
 ####Default Created Directory Structure:
 
