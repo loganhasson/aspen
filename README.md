@@ -11,10 +11,10 @@ $ gem install aspen
 Creates basic project directory structure including rspec initialization. Also creates
 skeleton README.md and evnironment.rb files.
 
-###Usage:
+###Basic Usage:
 
 ```bash
-$ aspen <project_title>
+$ aspen -n <project_title>
 ```
 
 ```bash
@@ -34,6 +34,29 @@ mkdir -p awesome-new-project/config
   create   .rspec
 Project successfully created at: /Users/matthewcampbell/Sites/code/labs/awesome-new-project
 ```
+
+###Better Usage
+
+<table>
+<thead><tr>
+
+<th>Flag</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr></thead>
+
+<tbody>
+
+<tr>
+<td>-n, --new=PROJECT_NAME</td>
+<td>Flag to designate the name of your new project. Must come before any other flags.</td>
+<td>```$ aspen -n my-awesome-project```<br />```$ aspen --new another-project``` </td>
+</tr>
+
+
+</tbody>
+
+</table>
 
 ###Contributing:
 
