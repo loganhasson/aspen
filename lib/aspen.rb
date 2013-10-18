@@ -11,7 +11,7 @@ class Aspen
   end
 
   @@opts = Trollop::with_standard_exception_handling @@args do
-    raise Trollop::HelpNeeded if ARGV.empty? || !ARGV[0].start_with?("-")
+    raise Trollop::HelpNeeded if ARGV.empty? || !ARGV[0].start_with?("-n")
     @@args.parse ARGV
   end
 
