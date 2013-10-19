@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
     'http://rubygems.org/gems/aspen'
   s.license       = 'MIT'
   s.add_runtime_dependency('rspec')
+  s.add_development_dependency ('rake')
   s.add_runtime_dependency('git')
   s.add_runtime_dependency('trollop')
 end

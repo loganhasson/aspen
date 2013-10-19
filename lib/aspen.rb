@@ -43,7 +43,7 @@ EOS
   def self.gem_init
     current = FileUtils.pwd()
     FileUtils.cd("#{@@root_name}")
-    yield 
+    yield
     FileUtils.cd(current)
   end
 
