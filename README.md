@@ -70,7 +70,7 @@ my-awesome-project
 
 <tr>
 <td><code>-t<br />--template=TEMPLATE</code></td>
-<td>Flag to designate the tempalte for your project's directory structure. If left blank uses default aspen template.</td>
+<td>Flag to designate the template for your project's directory structure. If left blank uses default aspen template.</td>
 <td><code>$ aspen -t hello my-awesome-project</td>
 </tr>
 
