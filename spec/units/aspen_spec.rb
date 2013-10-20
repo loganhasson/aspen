@@ -2,14 +2,12 @@ require_relative "../spec_helper"
 
 describe Aspen do
 
-  let(:root) {@@root_name = "my-awesome-project"}
+  let(:root) {Aspen.root_name = Aspen.sterilize_project_name(["my-awesome-project"])}
 
-  context 'class methods' do
+  describe 'file and directory creation' do
 
     it "::make_files should create README.md and put the project name in that file" do
-      root
-      Aspen.make_files
-      Aspen.send(:git).should 
+      Aspen.project_init
     end
 
   end
@@ -18,17 +16,7 @@ end
 
 describe AspenTemplate do
 
-  let(:test_hash) { 
-                    {
-                      :bin => {},
-                      :config => {},
-                      :lib => {
-                        :models => {},
-                        :concerns => {}
-                      }
-                    }
-                  }
-
+  let(:test_hash) {TestTemplate}
 
   it 'has a method that converts a nested hash into an array' do
     AspenTemplate.tree(test_hash).should be_a(Array)

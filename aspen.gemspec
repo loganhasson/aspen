@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency ('rake')
   s.add_runtime_dependency('git')
   s.add_runtime_dependency('trollop')
+
 end

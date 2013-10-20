@@ -18,7 +18,7 @@ $ gem install aspen
 $ aspen <project_title>
 ```
 
-Creates basic project directory structure including rspec initialization. Also creates skeleton README.md and evnironment.rb files.
+Creates basic project directory structure including rspec initialization. Also creates skeleton README.md and environment.rb files.
 
 ```bash
 $ aspen --help
