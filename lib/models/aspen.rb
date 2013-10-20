@@ -3,6 +3,7 @@ require_relative '../../config/environment'
 class Aspen
 
   extend Parsable
+  binding.pry
 
   def self.directories
     @directories

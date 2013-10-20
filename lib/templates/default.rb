@@ -2,7 +2,7 @@ TEMPLATE = {
               :bin => {},
               :config => {},
               :lib => {
-                :models => {},
-                :concerns => {}
+                :concerns => {},
+                :models => {}
               }
             }
