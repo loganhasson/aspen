@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
-require 'aspen'
+require 'models/aspen'
 Aspen.run
