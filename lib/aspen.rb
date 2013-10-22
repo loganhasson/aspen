@@ -80,7 +80,7 @@ EOS
   def self.project_init
     directory_init
     rspec_init
-    make_files if @@opts[:template] == nil || @@opts[:template] == "default"
+    make_files # if @@opts[:template] == nil || @@opts[:template] == "default"
     successful_creation
     write_to_files
     process_flags

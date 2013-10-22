@@ -12,13 +12,17 @@ class AspenFile
 
   def initialize(templ, direc, file)
     @templ = templ
-    @direc = direc
+    if direc.length != 0
+      @direc = direc + "/" 
+    else
+      @direc = ""
+    end
     @file = file
     @@all << self
   end
 
   def create(root)
-    FileUtils.cp("#{self.templ}/#{self.file[0]}", "#{root}#{self.direc}/#{self.file[0]}")
+    FileUtils.cp("#{self.templ}/#{self.file[0]}", "#{root}/#{self.direc}#{self.file[0]}")
   end
 
 end
