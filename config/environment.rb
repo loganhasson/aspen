@@ -4,7 +4,7 @@ require 'pry'
 require 'git'
 require 'trollop'
 
-AspenRoot = File.expand_path(File.dirname(__FILE__)).gsub("/config", "")
+AspenRoot = File.expand_path('../', File.dirname(__FILE__))#.gsub("/config", "")
 
 def get_reqs(current_dir)
   Dir.foreach(current_dir) do |file|

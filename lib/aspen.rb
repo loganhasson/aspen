@@ -36,7 +36,7 @@ EOS
   def self.run
     @@root_name = sterilize_project_name(@@args.leftovers)
     load_template
-    @@directories = AspenTemplate.tree(TEMPLATE)
+    @@directories = AspenTemplate.tree(TEMPLATE, "#{AspenRoot}/lib/templates/#{@@opts[:template]}")
     project_init
   end
 
@@ -61,11 +61,12 @@ EOS
 
   def self.load_template
     if @@opts[:template] == nil
-      require_relative "#{AspenRoot}/lib/templates/default.rb"
+      @@opts[:template] = "default"
+      require_relative "#{AspenRoot}/lib/templates/default/template.rb"
     else
       Dir.foreach("#{AspenRoot}/lib/templates") do |file|
         if file.start_with?("#{@@opts[:template].downcase.strip}")
-          require_relative "#{AspenRoot}/lib/templates/#{file}"
+          require_relative "#{AspenRoot}/lib/templates/#{file}/template.rb"
           break
         end
       end
@@ -79,19 +80,21 @@ EOS
   def self.project_init
     directory_init
     rspec_init
-    make_files if @@opts[:template] == nil || @@opts[:template] == "default"
+    make_files # if @@opts[:template] == nil || @@opts[:template] == "default"
     successful_creation
     write_to_files
     process_flags
   end
 
   def self.directory_init
-    self.directories.each {|dir| FileUtils.mkdir_p("#{@@root_name}#{dir}", :verbose => true)}
+    self.directories.each do |dir|
+      FileUtils.mkdir_p("#{@@root_name}#{dir}", :verbose => true)
+    end
   end
 
   def self.make_files
     FileUtils.touch("#{@@root_name}/README.md")
-    FileUtils.touch("#{@@root_name}/config/environment.rb")
+    AspenFile.all.each {|af| af.create("#{@@root_name}") }
   end
 
   def self.write_to_files
