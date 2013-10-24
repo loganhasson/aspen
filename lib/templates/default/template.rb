@@ -4,6 +4,6 @@ TEMPLATE = {
               :lib => {
                 :models => {
                   :concerns => {}
-                },
+                }
               }
             }

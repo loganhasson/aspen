@@ -33,25 +33,25 @@ $ aspen my-awesome-project
 mkdir -p my-awesome-project
 mkdir -p my-awesome-project/bin
 mkdir -p my-awesome-project/config
-mkdir -p my-awesome-project/lib/models
-mkdir -p my-awesome-project/lib/concerns
+mkdir -p my-awesome-project/lib/models/concerns
   create   spec/spec_helper.rb
   create   .rspec
- 
+  create   config/environment.rb
+
 Project successfully created at:
-	/Users/matthewcampbell/Sites/code/labs/my-awesome-project
+  /Users/loganhasson/Desktop/my-awesome-project
 ```
 ####Default Created Directory Structure:
 
 ```bash
-my-awesome-project
+my-awesome-project/
 ├── README.md
 ├── bin
 ├── config
 │   └── environment.rb
 ├── lib
-│   ├── concerns
 │   └── models
+│       └── concerns
 └── spec
     └── spec_helper.rb
 ```
@@ -92,21 +92,31 @@ Because aspen is a type of tree.
 
 Anyway, we need your help: aside from improving the code base and adding new features, please submit templates of your own. It's really easy to create them, and with a single pull request you can help the forest grow. 
 
-All aspen needs to create a new directory template is a hash. As an example, the default aspen template is structured as follows in ```templates/default.rb```:
+All aspen needs to create a new directory template is a folder with a `template.rb` file and any other files that your project requires. As an example, the default aspen template is structured as follows in `lib/templates/default`:
+
+```bash
+lib/templates/default
+├── environment.rb
+└── template.rb
+```
+
+Inside the `template.rb` file is a simple hash that describes the structure of your project:
 
 ```ruby
 TEMPLATE = {
               :bin => {},
-              :config => {},
+              :config => {:file1 => ["environment.rb"]},
               :lib => {
-                :models => {},
-                :concerns => {}
+                :models => {
+                  :concerns => {}
+                }
               }
             }
 ```
-All directories within your project are represented as key-value pairs. Directories with no children will point to an empty hash. Subdirectories will be nested within as hashes of their own.  
 
-Your template must be submitted as a ```.rb``` file in the ```templates``` directory and follow reasonable naming conventions. In other words, no weird characters or spaces. If you really want to be sure, here's more [info](http://www.exadox.com/en/articles/file-naming-convention-ten-rules-best-practice). 
+All directories within your project are represented as key-value pairs. Directories with no children will point to an empty hash. Subdirectories will be nested within as hashes of their own. To include files within a directory, create a key such as `:file1` and point it to an array that contains your file name as a string.
+
+Your template must be submitted as a folder within the `templates` directory containing a `template.rb` file and any additional supporting files. The folder name determines the template name. Please follow reasonable naming conventions. In other words, no weird characters or spaces. If you really want to be sure, here's more [info](http://www.exadox.com/en/articles/file-naming-convention-ten-rules-best-practice). 
 
 ####Submit Code, Offer Suggestions, Be Heard.
 

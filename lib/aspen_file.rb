@@ -23,7 +23,7 @@ class AspenFile
 
   def create(root)
     FileUtils.cp("#{self.templ}/#{self.file[0]}", "#{root}/#{self.direc}#{self.file[0]}")
-    puts "  create   #{self.direc}#{self.file[0]}"
+    puts "  create   #{self.direc.sub('/','')}#{self.file[0]}"
   end
 
 end
