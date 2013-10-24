@@ -1,4 +1,5 @@
 TEMPLATE = {
+              :config => {:file => ["environment.rb"]},
               :models => {},
               :public => {},
               :views => {},
