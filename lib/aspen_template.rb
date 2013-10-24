@@ -4,7 +4,7 @@ class AspenTemplate
 
   def self.tree(hash, direc)
     @@direc = direc
-    self.tree_gen(hash).flatten.unshift("")
+    self.tree_gen(hash).flatten.unshift("").uniq
   end
 
   def self.tree_gen(hash, root="")
