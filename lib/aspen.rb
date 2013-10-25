@@ -5,7 +5,7 @@ class Aspen
   @@mono_flags = [:git]
 
   @@args = Trollop::Parser.new do
-    version "aspen-0.2.2"
+    version "aspen #{Gem::Specification.select {|gem| gem.name == "aspen"}[0].version}"
     banner <<-EOS
  -----------------------------------------------------------------------------
 |aspen creates a flexible skeleton directory structure for your Ruby projects.|
